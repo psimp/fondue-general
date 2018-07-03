@@ -1,0 +1,2 @@
+/usr/bin/ar qc bin/libGLADd.a  CMakeFiles/GLAD.dir/src/glad.c.o
+/usr/bin/ranlib bin/libGLADd.a

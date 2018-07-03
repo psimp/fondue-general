@@ -1,0 +1,7 @@
+#define MAX_LIGHTS              100
+#define MAX_GLOBAL_MESHES       50000
+#define MAX_WORK_GROUP_SIZE     16
+#define SCREEN_WIDTH            1600.0f
+#define SCREEN_HEIGHT           900.0f
+#define MAX_VIEWSPACE_MESHES    100
+#define NUM_SAMPLES             6
