@@ -36,34 +36,6 @@ namespace Fondue { namespace graphics {
 
         if (voxelizer) voxelizer->gensdf(file, vertices, indices, tids, bound, shift * (scale * 1.07), scale * 0.7);
         if(TEMP_vertexDestination) TEMP_vertexDestination->fill_with(vertexData, indices, bound, vertexData.size());
-
-        FILE* infs = fopen((filename + ".binf").c_str(), "wb");
-        if (infs != NULL)
-        {
-            size_t mems[4] = { vertices.size(), indices.size(), tids.size(), vertexData.size() };
-            fwrite(mems, 4 * sizeof(size_t), 1, infs);
-            fclose(infs);
-
-            bins = fopen((filename + "_vertices" + ".bin").c_str(), "wb");
-            fwrite(vertices.data(), mems[0]*sizeof(uint), 1, bins);
-            fclose(bins);
-
-            FILE* bins = fopen((filename + "_indices" + ".bin").c_str(), "wb");
-\           fwrite(indices.data(), mems[1]*sizeof(float), 1, bins);
-            fclose(bins);
-
-            bins = fopen((filename + "_tids" + ".bin").c_str(), "wb");
-            fwrite(tids.data(), mems[2]*sizeof(float), 1, bins);
-            fclose(bins);
-
-            bins = fopen((filename + "_vertexdata" + ".bin").c_str(), "wb");
-            fwrite(vertexData.data(), mems[3]*sizeof(maths::vec3), 1, bins);
-            fclose(bins);
-
-            bins = fopen((filename + "_bounds" + ".bin").c_str(), "wb");
-            fwrite(bounds, size, 1, bins);
-            fclose(bins);
-        }
     }
 
     void model_importer::processNode(aiNode* node, const aiScene* scene, std::vector<unsigned int>& indices,

@@ -21,7 +21,7 @@ namespace Fondue { namespace graphics {
 
         Renderer(const Texture& envMap)
         {
-            env.load_from_bin("testenv");
+            env.generate_env_binaries(envMap.getTID(), "testenv");
 
             skybox.init(CUBER_OUT);
 
